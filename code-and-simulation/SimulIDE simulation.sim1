@@ -1,0 +1,179 @@
+<circuit version="1.1.0-RC0" rev="1909" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Led" CircId="Led-114" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-68" rotation="0" hflip="-1" vflip="1" label="Led-114" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Orange" Grounded="false" Threshold="2 V" MaxCurrent="0.03 A" Resistance="0.6 Ω" />
+
+<item itemtype="Ground" CircId="Ground-124" mainComp="false" Show_id="false" Show_Val="false" Pos="-48,72" rotation="0" hflip="1" vflip="1" label="Ground-124" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-137" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="44,-116" rotation="0" hflip="1" vflip="1" label="Potentiometer-137" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="12 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Tunnel" CircId="Tunnel-131" mainComp="false" Show_id="false" Show_Val="false" Pos="12,-212" rotation="0" hflip="1" vflip="1" label="Tunnel-131" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_TOP" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-160" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-84" rotation="0" hflip="1" vflip="1" label="Tunnel-160" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="FIRE_BELOW" IsBus="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-103" mainComp="false" Show_id="false" Show_Val="false" Pos="132,-236" rotation="0" hflip="-1" vflip="1" label="Fixed Voltage-103" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Tunnel" CircId="Tunnel-163" mainComp="false" Show_id="false" Show_Val="false" Pos="-268,-128" rotation="0" hflip="-1" vflip="1" label="Tunnel-163" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="FIRE_ABOVE" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-172" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,12" rotation="0" hflip="1" vflip="1" label="Tunnel-172" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="VCC" IsBus="false" />
+
+<item itemtype="Ground" CircId="Ground-89" mainComp="false" Show_id="false" Show_Val="false" Pos="-324,-20" rotation="0" hflip="1" vflip="1" label="Ground-89" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-165" mainComp="false" Show_id="false" Show_Val="false" Pos="-268,-68" rotation="0" hflip="-1" vflip="1" label="Tunnel-165" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WATER_PUMP" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-150" mainComp="false" Show_id="false" Show_Val="false" Pos="-92,-108" rotation="0" hflip="-1" vflip="1" label="Tunnel-150" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_BOT" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-152" mainComp="false" Show_id="false" Show_Val="false" Pos="-92,-100" rotation="0" hflip="-1" vflip="1" label="Tunnel-152" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_TOP" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-162" mainComp="false" Show_id="false" Show_Val="false" Pos="-268,-148" rotation="0" hflip="-1" vflip="1" label="Tunnel-162" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SCANNING" IsBus="false" />
+
+<item itemtype="Led" CircId="Led-91" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-148" rotation="0" hflip="-1" vflip="1" label="Led-91" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="White" Grounded="false" Threshold="4 V" MaxCurrent="0.03 A" Resistance="0.6 Ω" />
+
+<item itemtype="Tunnel" CircId="Tunnel-169" mainComp="false" Show_id="false" Show_Val="false" Pos="-20,12" rotation="0" hflip="1" vflip="1" label="Tunnel-169" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="VCC" IsBus="false" />
+
+<item itemtype="Ground" CircId="Ground-135" mainComp="false" Show_id="false" Show_Val="false" Pos="20,-60" rotation="0" hflip="1" vflip="1" label="Ground-135" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="MCU" CircId="mega328-53" mainComp="false" Show_id="true" Show_Val="false" Pos="-144,-116" rotation="0" hflip="1" vflip="1" label="mega328-53" idLabPos="0.459933,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="main.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" SerialMon="-1" />
+
+<item itemtype="Led" CircId="Led-88" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-108" rotation="0" hflip="-1" vflip="1" label="Led-88" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Green" Grounded="false" Threshold="3.5 V" MaxCurrent="0.03 A" Resistance="0.6 Ω" />
+
+<item itemtype="Tunnel" CircId="Tunnel-157" mainComp="false" Show_id="false" Show_Val="false" Pos="-92,-44" rotation="0" hflip="-1" vflip="1" label="Tunnel-157" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="VCC" IsBus="false" />
+
+<item itemtype="Ground" CircId="Ground-60" mainComp="false" Show_id="false" Show_Val="false" Pos="-324,72" rotation="0" hflip="1" vflip="1" label="Ground-60" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-153" mainComp="false" Show_id="false" Show_Val="false" Pos="-92,-92" rotation="0" hflip="-1" vflip="1" label="Tunnel-153" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_MID" IsBus="false" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-98" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="44,-236" rotation="0" hflip="1" vflip="1" label="Potentiometer-98" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="0 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Tunnel" CircId="Tunnel-159" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-92" rotation="0" hflip="1" vflip="1" label="Tunnel-159" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="FIRE_ABOVE" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-149" mainComp="false" Show_id="false" Show_Val="false" Pos="12,-92" rotation="0" hflip="1" vflip="1" label="Tunnel-149" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_BOT" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-158" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-100" rotation="0" hflip="1" vflip="1" label="Tunnel-158" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SCANNING" IsBus="false" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-138" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="44,-176" rotation="0" hflip="1" vflip="1" label="Potentiometer-138" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="1000 Ω" Value_Ohm="0 Ω" Slider="false" Scale="1" />
+
+<item itemtype="Tunnel" CircId="Tunnel-148" mainComp="false" Show_id="false" Show_Val="false" Pos="12,-152" rotation="0" hflip="1" vflip="1" label="Tunnel-148" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="SENSOR_MID" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-154" mainComp="false" Show_id="false" Show_Val="false" Pos="100,-256" rotation="0" hflip="-1" vflip="1" label="Tunnel-154" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="VCC" IsBus="false" />
+
+<item itemtype="Servo" CircId="Servo-122" mainComp="false" Show_id="true" Show_Val="false" Pos="40,28" rotation="0" hflip="1" vflip="1" label="Servo-122" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _sec/60º" MinPulse="1000 _us" MaxPulse="2000 _us" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
+
+<item itemtype="Tunnel" CircId="Tunnel-164" mainComp="false" Show_id="false" Show_Val="false" Pos="-268,-108" rotation="0" hflip="-1" vflip="1" label="Tunnel-164" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="FIRE_BELOW" IsBus="false" />
+
+<item itemtype="Servo" CircId="Servo-58" mainComp="false" Show_id="true" Show_Val="false" Pos="-248,28" rotation="-360" hflip="1" vflip="1" label="Servo-58" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _sec/60º" MinPulse="1000 _us" MaxPulse="2000 _us" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
+
+<item itemtype="Oscope" CircId="Oscope-63" mainComp="false" Show_id="false" Show_Val="false" Pos="-68,168" rotation="0" hflip="1" vflip="1" label="Oscope-63" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _Pixels" Basic_Y="135 _Pixels" BufferSize="600000 Samples" TimDiv="688728851" TimPos="-2082599008,-2082599008,-2082599008,-2082599008," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
+
+<item itemtype="Tunnel" CircId="Tunnel-161" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-68" rotation="0" hflip="1" vflip="1" label="Tunnel-161" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WATER_PUMP" IsBus="false" />
+
+<item itemtype="Led" CircId="Led-87" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-128" rotation="0" hflip="-1" vflip="1" label="Led-87" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Green" Grounded="false" Threshold="3.5 V" MaxCurrent="0.03 A" Resistance="0.6 Ω" />
+
+<item itemtype="Node" CircId="Node-120" mainComp="false" Pos="-324,-68" />
+
+<item itemtype="Node" CircId="Node-140" mainComp="false" Pos="68,-176" />
+
+<item itemtype="Node" CircId="Node-147" mainComp="false" Pos="20,-176" />
+
+<item itemtype="Node" CircId="Node-118" mainComp="false" Pos="-324,-108" />
+
+<item itemtype="Node" CircId="Node-117" mainComp="false" Pos="-324,-128" />
+
+<item itemtype="Node" CircId="Node-166" mainComp="false" Pos="-188,60" />
+
+<item itemtype="Node" CircId="Node-156" mainComp="false" Pos="92,-236" />
+
+<item itemtype="Node" CircId="Node-139" mainComp="false" Pos="68,-236" />
+
+<item itemtype="Node" CircId="Node-173" mainComp="false" Pos="-92,44" />
+
+<item itemtype="Node" CircId="Node-146" mainComp="false" Pos="20,-116" />
+
+<item itemtype="Connector" uid="Connector-441" startpinid="Node-118-2" endpinid="Node-120-0" pointList="-324,-108,-324,-68" />
+
+<item itemtype="Connector" uid="Connector-465" startpinid="Node-173-1" endpinid="Oscope-63-Pin3" pointList="-92,44,-168,44,-168,216,-156,216" />
+
+<item itemtype="Connector" uid="Connector-439" startpinid="Node-156-2" endpinid="Node-139-0" pointList="92,-236,68,-236" />
+
+<item itemtype="Connector" uid="Connector-440" startpinid="mega328-53-PORTV0" endpinid="Tunnel-157-pin" pointList="-104,-44,-92,-44" />
+
+<item itemtype="Connector" uid="Connector-430" startpinid="Tunnel-150-pin" endpinid="mega328-53-PORTC5" pointList="-92,-108,-104,-108" />
+
+<item itemtype="Connector" uid="Connector-363" startpinid="Led-88-rPin" endpinid="Node-118-1" pointList="-312,-108,-324,-108" />
+
+<item itemtype="Connector" uid="Connector-402" startpinid="Node-140-2" endpinid="Potentiometer-138-PinB" pointList="68,-176,60,-176" />
+
+<item itemtype="Connector" uid="Connector-423" startpinid="Node-146-2" endpinid="Potentiometer-137-PinA" pointList="20,-116,28,-116" />
+
+<item itemtype="Connector" uid="Connector-449" startpinid="Led-88-lPin" endpinid="Tunnel-164-pin" pointList="-280,-108,-268,-108" />
+
+<item itemtype="Connector" uid="Connector-429" startpinid="Potentiometer-98-PinM" endpinid="Tunnel-131-pin" pointList="44,-220,44,-212,12,-212" />
+
+<item itemtype="Connector" uid="Connector-444" startpinid="Tunnel-160-pin" endpinid="mega328-53-PORTD2" pointList="-164,-84,-152,-84" />
+
+<item itemtype="Connector" uid="Connector-450" startpinid="Led-114-lPin" endpinid="Tunnel-165-pin" pointList="-280,-68,-268,-68" />
+
+<item itemtype="Connector" uid="Connector-463" startpinid="Tunnel-172-pin" endpinid="Servo-58-in0" pointList="-308,12,-296,12" />
+
+<item itemtype="Connector" uid="Connector-452" startpinid="mega328-53-PORTD6" endpinid="Node-166-0" pointList="-152,-20,-188,-20,-188,60" />
+
+<item itemtype="Connector" uid="Connector-437" startpinid="Node-156-1" endpinid="Tunnel-154-pin" pointList="92,-236,92,-256,100,-256" />
+
+<item itemtype="Connector" uid="Connector-369" startpinid="Led-114-rPin" endpinid="Node-120-1" pointList="-312,-68,-324,-68" />
+
+<item itemtype="Connector" uid="Connector-400" startpinid="Node-140-1" endpinid="Potentiometer-137-PinB" pointList="68,-176,68,-116,60,-116" />
+
+<item itemtype="Connector" uid="Connector-378" startpinid="Servo-122-in1" endpinid="Ground-124-Gnd" pointList="-8,28,-48,28,-48,56" />
+
+<item itemtype="Connector" uid="Connector-451" startpinid="Node-166-1" endpinid="Oscope-63-Pin0" pointList="-188,60,-188,120,-156,120" />
+
+<item itemtype="Connector" uid="Connector-445" startpinid="Tunnel-159-pin" endpinid="mega328-53-PORTD1" pointList="-164,-92,-152,-92" />
+
+<item itemtype="Connector" uid="Connector-431" startpinid="Tunnel-152-pin" endpinid="mega328-53-PORTC4" pointList="-92,-100,-104,-100" />
+
+<item itemtype="Connector" uid="Connector-448" startpinid="Led-87-lPin" endpinid="Tunnel-163-pin" pointList="-280,-128,-268,-128" />
+
+<item itemtype="Connector" uid="Connector-462" startpinid="Tunnel-169-pin" endpinid="Servo-122-in0" pointList="-20,12,-8,12" />
+
+<item itemtype="Connector" uid="Connector-427" startpinid="Potentiometer-137-PinM" endpinid="Tunnel-149-pin" pointList="44,-100,44,-92,12,-92" />
+
+<item itemtype="Connector" uid="Connector-438" startpinid="Fixed Voltage-103-outnod" endpinid="Node-156-0" pointList="116,-236,92,-236" />
+
+<item itemtype="Connector" uid="Connector-401" startpinid="Node-139-1" endpinid="Node-140-0" pointList="68,-236,68,-176" />
+
+<item itemtype="Connector" uid="Connector-360" startpinid="Led-87-rPin" endpinid="Node-117-1" pointList="-312,-128,-324,-128" />
+
+<item itemtype="Connector" uid="Connector-426" startpinid="Node-147-2" endpinid="Node-146-1" pointList="20,-176,20,-116" />
+
+<item itemtype="Connector" uid="Connector-364" startpinid="Node-117-2" endpinid="Node-118-0" pointList="-324,-128,-324,-108" />
+
+<item itemtype="Connector" uid="Connector-446" startpinid="Tunnel-158-pin" endpinid="mega328-53-PORTD0" pointList="-164,-100,-152,-100" />
+
+<item itemtype="Connector" uid="Connector-443" startpinid="Tunnel-161-pin" endpinid="mega328-53-PORTD4" pointList="-164,-68,-152,-68" />
+
+<item itemtype="Connector" uid="Connector-425" startpinid="Potentiometer-98-PinA" endpinid="Node-147-0" pointList="28,-236,20,-236,20,-176" />
+
+<item itemtype="Connector" uid="Connector-195" startpinid="Servo-58-in1" endpinid="Ground-60-Gnd" pointList="-296,28,-324,28,-324,56" />
+
+<item itemtype="Connector" uid="Connector-361" startpinid="Led-91-rPin" endpinid="Node-117-0" pointList="-312,-148,-324,-148,-324,-128" />
+
+<item itemtype="Connector" uid="Connector-428" startpinid="Potentiometer-138-PinM" endpinid="Tunnel-148-pin" pointList="44,-160,44,-152,12,-152" />
+
+<item itemtype="Connector" uid="Connector-432" startpinid="Tunnel-153-pin" endpinid="mega328-53-PORTC3" pointList="-92,-92,-104,-92" />
+
+<item itemtype="Connector" uid="Connector-399" startpinid="Node-139-2" endpinid="Potentiometer-98-PinB" pointList="68,-236,60,-236" />
+
+<item itemtype="Connector" uid="Connector-424" startpinid="Potentiometer-138-PinA" endpinid="Node-147-1" pointList="28,-176,20,-176" />
+
+<item itemtype="Connector" uid="Connector-467" startpinid="Node-173-2" endpinid="mega328-53-PORTB1" pointList="-92,44,-92,-4,-104,-4" />
+
+<item itemtype="Connector" uid="Connector-453" startpinid="Node-166-2" endpinid="Servo-58-in2" pointList="-188,60,-308,60,-308,44,-296,44" />
+
+<item itemtype="Connector" uid="Connector-466" startpinid="Servo-122-in2" endpinid="Node-173-0" pointList="-8,44,-92,44" />
+
+<item itemtype="Connector" uid="Connector-442" startpinid="Node-120-2" endpinid="Ground-89-Gnd" pointList="-324,-68,-324,-36" />
+
+<item itemtype="Connector" uid="Connector-447" startpinid="Led-91-lPin" endpinid="Tunnel-162-pin" pointList="-280,-148,-268,-148" />
+
+<item itemtype="Connector" uid="Connector-422" startpinid="Ground-135-Gnd" endpinid="Node-146-0" pointList="20,-76,20,-116" />
+
+</circuit>

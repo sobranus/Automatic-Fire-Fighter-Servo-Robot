@@ -1,0 +1,772 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	init_pin
+  18               	init_pin:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8AB1      		in r24,42-32
+  25 0002 8F67      		ori r24,lo8(127)
+  26 0004 8AB9      		out 42-32,r24
+  27               	.LM3:
+  28 0006 87B1      		in r24,39-32
+  29 0008 8863      		ori r24,lo8(56)
+  30 000a 87B9      		out 39-32,r24
+  31               	.LM4:
+  32 000c 87B1      		in r24,39-32
+  33 000e 887F      		andi r24,lo8(-8)
+  34 0010 87B9      		out 39-32,r24
+  35               	.LM5:
+  36 0012 219A      		sbi 36-32,1
+  37               	/* epilogue start */
+  38               	.LM6:
+  39 0014 0895      		ret
+  40               	.LFE6:
+  42               	.global	init_adc
+  44               	init_adc:
+  45               	.LFB7:
+  46               	.LM7:
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	.LM8:
+  50 0016 80E4      		ldi r24,lo8(64)
+  51 0018 8093 7C00 		sts 124,r24
+  52               	.LM9:
+  53 001c EAE7      		ldi r30,lo8(122)
+  54 001e F0E0      		ldi r31,hi8(122)
+  55 0020 87E0      		ldi r24,lo8(7)
+  56 0022 8083      		st Z,r24
+  57               	.LM10:
+  58 0024 8081      		ld r24,Z
+  59 0026 8068      		ori r24,lo8(-128)
+  60 0028 8083      		st Z,r24
+  61               	/* epilogue start */
+  62               	.LM11:
+  63 002a 0895      		ret
+  64               	.LFE7:
+  66               	.global	init_pwm
+  68               	init_pwm:
+  69               	.LFB8:
+  70               	.LM12:
+  71               	/* prologue: function */
+  72               	/* frame size = 0 */
+  73               	.LM13:
+  74 002c 84B5      		in r24,68-32
+  75 002e 8368      		ori r24,lo8(-125)
+  76 0030 84BD      		out 68-32,r24
+  77               	.LM14:
+  78 0032 85B5      		in r24,69-32
+  79 0034 8460      		ori r24,lo8(4)
+  80 0036 85BD      		out 69-32,r24
+  81               	.LM15:
+  82 0038 E0E8      		ldi r30,lo8(128)
+  83 003a F0E0      		ldi r31,hi8(128)
+  84 003c 8081      		ld r24,Z
+  85 003e 8168      		ori r24,lo8(-127)
+  86 0040 8083      		st Z,r24
+  87               	.LM16:
+  88 0042 E1E8      		ldi r30,lo8(129)
+  89 0044 F0E0      		ldi r31,hi8(129)
+  90 0046 8081      		ld r24,Z
+  91 0048 8C60      		ori r24,lo8(12)
+  92 004a 8083      		st Z,r24
+  93               	.LM17:
+  94 004c 2091 0000 		lds r18,PULSE_WIDTH
+  95 0050 3091 0000 		lds r19,PULSE_WIDTH+1
+  96 0054 27BD      		out 71-32,r18
+  97               	.LM18:
+  98 0056 C901      		movw r24,r18
+  99 0058 9093 8900 		sts (136)+1,r25
+ 100 005c 8093 8800 		sts 136,r24
+ 101               	/* epilogue start */
+ 102               	.LM19:
+ 103 0060 0895      		ret
+ 104               	.LFE8:
+ 106               	.global	adc_read
+ 108               	adc_read:
+ 109               	.LFB9:
+ 110               	.LM20:
+ 111               	.LVL0:
+ 112               	/* prologue: function */
+ 113               	/* frame size = 0 */
+ 114               	.LM21:
+ 115 0062 9091 7C00 		lds r25,124
+ 116 0066 8770      		andi r24,lo8(7)
+ 117               	.LVL1:
+ 118 0068 987F      		andi r25,lo8(-8)
+ 119 006a 892B      		or r24,r25
+ 120 006c 8093 7C00 		sts 124,r24
+ 121               	.LM22:
+ 122 0070 8091 7A00 		lds r24,122
+ 123 0074 8064      		ori r24,lo8(64)
+ 124 0076 8093 7A00 		sts 122,r24
+ 125               	.L8:
+ 126               	.LM23:
+ 127 007a 8091 7A00 		lds r24,122
+ 128 007e 86FD      		sbrc r24,6
+ 129 0080 00C0      		rjmp .L8
+ 130               	.LM24:
+ 131 0082 2091 7800 		lds r18,120
+ 132 0086 3091 7900 		lds r19,(120)+1
+ 133               	.LM25:
+ 134 008a C901      		movw r24,r18
+ 135               	/* epilogue start */
+ 136 008c 0895      		ret
+ 137               	.LFE9:
+ 139               	.global	adc_check
+ 141               	adc_check:
+ 142               	.LFB10:
+ 143               	.LM26:
+ 144 008e 1F93      		push r17
+ 145 0090 CF93      		push r28
+ 146 0092 DF93      		push r29
+ 147               	/* prologue: function */
+ 148               	/* frame size = 0 */
+ 149               	.LM27:
+ 150 0094 C0E0      		ldi r28,lo8(adc_value)
+ 151 0096 D0E0      		ldi r29,hi8(adc_value)
+ 152 0098 10E0      		ldi r17,lo8(0)
+ 153               	.L12:
+ 154               	.LBB42:
+ 155               	.LM28:
+ 156 009a 812F      		mov r24,r17
+ 157 009c 0E94 0000 		call adc_read
+ 158 00a0 8993      		st Y+,r24
+ 159 00a2 9993      		st Y+,r25
+ 160 00a4 1F5F      		subi r17,lo8(-(1))
+ 161               	.LM29:
+ 162 00a6 1730      		cpi r17,lo8(7)
+ 163 00a8 01F4      		brne .L12
+ 164               	/* epilogue start */
+ 165               	.LBE42:
+ 166               	.LM30:
+ 167 00aa DF91      		pop r29
+ 168 00ac CF91      		pop r28
+ 169 00ae 1F91      		pop r17
+ 170 00b0 0895      		ret
+ 171               	.LFE10:
+ 173               	.global	fire_check
+ 175               	fire_check:
+ 176               	.LFB11:
+ 177               	.LM31:
+ 178               	/* prologue: function */
+ 179               	/* frame size = 0 */
+ 180               	.LM32:
+ 181 00b2 8091 0000 		lds r24,adc_value+6
+ 182 00b6 9091 0000 		lds r25,(adc_value+6)+1
+ 183 00ba 855F      		subi r24,lo8(501)
+ 184 00bc 9140      		sbci r25,hi8(501)
+ 185 00be 00F0      		brlo .L16
+ 186               	.LM33:
+ 187 00c0 81E0      		ldi r24,lo8(1)
+ 188 00c2 8093 0000 		sts fire_detected,r24
+ 189               	.LM34:
+ 190 00c6 1092 0000 		sts fire_at,__zero_reg__
+ 191 00ca 0895      		ret
+ 192               	.L16:
+ 193               	.LM35:
+ 194 00cc 8091 0000 		lds r24,adc_value+8
+ 195 00d0 9091 0000 		lds r25,(adc_value+8)+1
+ 196 00d4 855F      		subi r24,lo8(501)
+ 197 00d6 9140      		sbci r25,hi8(501)
+ 198 00d8 00F0      		brlo .L18
+ 199               	.LM36:
+ 200 00da 81E0      		ldi r24,lo8(1)
+ 201 00dc 8093 0000 		sts fire_detected,r24
+ 202               	.LM37:
+ 203 00e0 8093 0000 		sts fire_at,r24
+ 204 00e4 0895      		ret
+ 205               	.L18:
+ 206               	.LM38:
+ 207 00e6 8091 0000 		lds r24,adc_value+10
+ 208 00ea 9091 0000 		lds r25,(adc_value+10)+1
+ 209 00ee 855F      		subi r24,lo8(501)
+ 210 00f0 9140      		sbci r25,hi8(501)
+ 211 00f2 00F0      		brlo .L19
+ 212               	.LM39:
+ 213 00f4 81E0      		ldi r24,lo8(1)
+ 214 00f6 8093 0000 		sts fire_detected,r24
+ 215               	.LM40:
+ 216 00fa 82E0      		ldi r24,lo8(2)
+ 217 00fc 8093 0000 		sts fire_at,r24
+ 218               	.L19:
+ 219 0100 0895      		ret
+ 220               	.LFE11:
+ 222               	.global	aim_left
+ 224               	aim_left:
+ 225               	.LFB12:
+ 226               	.LM41:
+ 227               	.LVL2:
+ 228 0102 EF92      		push r14
+ 229 0104 FF92      		push r15
+ 230 0106 0F93      		push r16
+ 231 0108 1F93      		push r17
+ 232 010a CF93      		push r28
+ 233 010c DF93      		push r29
+ 234               	/* prologue: function */
+ 235               	/* frame size = 0 */
+ 236 010e 8B01      		movw r16,r22
+ 237               	.LM42:
+ 238 0110 EC01      		movw r28,r24
+ 239               	.LVL3:
+ 240               	.LBB43:
+ 241               	.LBB44:
+ 242               	.LBB45:
+ 243               	.LBB46:
+ 244               	.LBB47:
+ 245               	.LM43:
+ 246 0112 80E9      		ldi r24,lo8(400)
+ 247 0114 E82E      		mov r14,r24
+ 248 0116 81E0      		ldi r24,hi8(400)
+ 249 0118 F82E      		mov r15,r24
+ 250               	.LVL4:
+ 251 011a 00C0      		rjmp .L21
+ 252               	.LVL5:
+ 253               	.L24:
+ 254               	.LBE47:
+ 255               	.LBE46:
+ 256               	.LBE45:
+ 257               	.LBE44:
+ 258               	.LM44:
+ 259 011c C7BD      		out 71-32,r28
+ 260               	.LM45:
+ 261 011e 0E94 0000 		call adc_check
+ 262 0122 8CE2      		ldi r24,lo8(300)
+ 263 0124 91E0      		ldi r25,hi8(300)
+ 264               	.LVL6:
+ 265               	.L22:
+ 266               	.LBB51:
+ 267               	.LBB50:
+ 268               	.LBB49:
+ 269               	.LBB48:
+ 270               	.LM46:
+ 271 0126 F701      		movw r30,r14
+ 272               	.LVL7:
+ 273               	/* #APP */
+ 274               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 275 0128 3197      		1: sbiw r30,1
+ 276 012a 01F4      		brne 1b
+ 277               	 ;  0 "" 2
+ 278               	/* #NOAPP */
+ 279               	.LBE48:
+ 280               	.LBE49:
+ 281               	.LM47:
+ 282 012c 0197      		sbiw r24,1
+ 283               	.LM48:
+ 284 012e 01F4      		brne .L22
+ 285               	.LBE50:
+ 286               	.LBE51:
+ 287               	.LM49:
+ 288 0130 D093 0000 		sts (PULSE_WIDTH)+1,r29
+ 289 0134 C093 0000 		sts PULSE_WIDTH,r28
+ 290               	.LM50:
+ 291 0138 0E94 0000 		call fire_check
+ 292               	.LVL8:
+ 293               	.LM51:
+ 294 013c 2196      		adiw r28,1
+ 295               	.LVL9:
+ 296               	.L21:
+ 297 013e C017      		cp r28,r16
+ 298 0140 D107      		cpc r29,r17
+ 299 0142 04F4      		brge .L25
+ 300 0144 8091 0000 		lds r24,fire_detected
+ 301 0148 8823      		tst r24
+ 302 014a 01F0      		breq .L24
+ 303               	.L25:
+ 304               	/* epilogue start */
+ 305               	.LBE43:
+ 306               	.LM52:
+ 307 014c DF91      		pop r29
+ 308 014e CF91      		pop r28
+ 309               	.LVL10:
+ 310 0150 1F91      		pop r17
+ 311 0152 0F91      		pop r16
+ 312               	.LVL11:
+ 313 0154 FF90      		pop r15
+ 314 0156 EF90      		pop r14
+ 315 0158 0895      		ret
+ 316               	.LFE12:
+ 318               	.global	aim_right
+ 320               	aim_right:
+ 321               	.LFB13:
+ 322               	.LM53:
+ 323               	.LVL12:
+ 324 015a EF92      		push r14
+ 325 015c FF92      		push r15
+ 326 015e 0F93      		push r16
+ 327 0160 1F93      		push r17
+ 328 0162 CF93      		push r28
+ 329 0164 DF93      		push r29
+ 330               	/* prologue: function */
+ 331               	/* frame size = 0 */
+ 332 0166 8B01      		movw r16,r22
+ 333               	.LM54:
+ 334 0168 EC01      		movw r28,r24
+ 335               	.LVL13:
+ 336               	.LBB52:
+ 337               	.LBB53:
+ 338               	.LBB54:
+ 339               	.LBB55:
+ 340               	.LBB56:
+ 341               	.LM55:
+ 342 016a 90E9      		ldi r25,lo8(400)
+ 343 016c E92E      		mov r14,r25
+ 344 016e 91E0      		ldi r25,hi8(400)
+ 345 0170 F92E      		mov r15,r25
+ 346 0172 00C0      		rjmp .L28
+ 347               	.LVL14:
+ 348               	.L31:
+ 349               	.LBE56:
+ 350               	.LBE55:
+ 351               	.LBE54:
+ 352               	.LBE53:
+ 353               	.LM56:
+ 354 0174 C7BD      		out 71-32,r28
+ 355               	.LM57:
+ 356 0176 0E94 0000 		call adc_check
+ 357 017a 8CE2      		ldi r24,lo8(300)
+ 358 017c 91E0      		ldi r25,hi8(300)
+ 359               	.LVL15:
+ 360               	.L29:
+ 361               	.LBB60:
+ 362               	.LBB59:
+ 363               	.LBB58:
+ 364               	.LBB57:
+ 365               	.LM58:
+ 366 017e F701      		movw r30,r14
+ 367               	.LVL16:
+ 368               	/* #APP */
+ 369               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 370 0180 3197      		1: sbiw r30,1
+ 371 0182 01F4      		brne 1b
+ 372               	 ;  0 "" 2
+ 373               	/* #NOAPP */
+ 374               	.LBE57:
+ 375               	.LBE58:
+ 376               	.LM59:
+ 377 0184 0197      		sbiw r24,1
+ 378               	.LM60:
+ 379 0186 01F4      		brne .L29
+ 380               	.LBE59:
+ 381               	.LBE60:
+ 382               	.LM61:
+ 383 0188 D093 0000 		sts (PULSE_WIDTH)+1,r29
+ 384 018c C093 0000 		sts PULSE_WIDTH,r28
+ 385               	.LM62:
+ 386 0190 0E94 0000 		call fire_check
+ 387               	.LVL17:
+ 388               	.LM63:
+ 389 0194 2197      		sbiw r28,1
+ 390               	.LVL18:
+ 391               	.L28:
+ 392 0196 0C17      		cp r16,r28
+ 393 0198 1D07      		cpc r17,r29
+ 394 019a 04F4      		brge .L32
+ 395 019c 8091 0000 		lds r24,fire_detected
+ 396               	.LVL19:
+ 397 01a0 8823      		tst r24
+ 398 01a2 01F0      		breq .L31
+ 399               	.LVL20:
+ 400               	.L32:
+ 401               	/* epilogue start */
+ 402               	.LBE52:
+ 403               	.LM64:
+ 404 01a4 DF91      		pop r29
+ 405 01a6 CF91      		pop r28
+ 406               	.LVL21:
+ 407 01a8 1F91      		pop r17
+ 408 01aa 0F91      		pop r16
+ 409               	.LVL22:
+ 410 01ac FF90      		pop r15
+ 411 01ae EF90      		pop r14
+ 412 01b0 0895      		ret
+ 413               	.LFE13:
+ 415               	.global	main
+ 417               	main:
+ 418               	.LFB14:
+ 419               	.LM65:
+ 420 01b2 CF92      		push r12
+ 421 01b4 DF92      		push r13
+ 422 01b6 EF92      		push r14
+ 423 01b8 FF92      		push r15
+ 424 01ba 0F93      		push r16
+ 425 01bc 1F93      		push r17
+ 426 01be CF93      		push r28
+ 427 01c0 DF93      		push r29
+ 428               	/* prologue: function */
+ 429               	/* frame size = 0 */
+ 430               	.LM66:
+ 431 01c2 0E94 0000 		call init_pin
+ 432               	.LM67:
+ 433 01c6 0E94 0000 		call init_pwm
+ 434               	.LBB61:
+ 435               	.LBB62:
+ 436               	.LM68:
+ 437 01ca 80E4      		ldi r24,lo8(64)
+ 438 01cc 8093 7C00 		sts 124,r24
+ 439               	.LM69:
+ 440 01d0 87E0      		ldi r24,lo8(7)
+ 441 01d2 8093 7A00 		sts 122,r24
+ 442               	.LM70:
+ 443 01d6 8091 7A00 		lds r24,122
+ 444 01da 8068      		ori r24,lo8(-128)
+ 445 01dc 8093 7A00 		sts 122,r24
+ 446               	.LBE62:
+ 447               	.LBE61:
+ 448               	.LM71:
+ 449               	/* #APP */
+ 450               	 ;  124 "main.c" 1
+ 451 01e0 7894      		sei
+ 452               	 ;  0 "" 2
+ 453               	.LM72:
+ 454               	/* #NOAPP */
+ 455 01e2 2EE5      		ldi r18,lo8(94)
+ 456 01e4 E22E      		mov r14,r18
+ 457 01e6 F12C      		mov r15,__zero_reg__
+ 458               	.LM73:
+ 459 01e8 CC24      		clr r12
+ 460 01ea C394      		inc r12
+ 461               	.LBB63:
+ 462               	.LBB64:
+ 463               	.LBB65:
+ 464               	.LBB66:
+ 465               	.LBB67:
+ 466               	.LM74:
+ 467 01ec 00E9      		ldi r16,lo8(400)
+ 468 01ee 11E0      		ldi r17,hi8(400)
+ 469               	.LBE67:
+ 470               	.LBE66:
+ 471               	.LBE65:
+ 472               	.LBE64:
+ 473               	.LM75:
+ 474 01f0 DD24      		clr r13
+ 475 01f2 D394      		inc r13
+ 476               	.LVL23:
+ 477               	.L53:
+ 478               	.LBE63:
+ 479               	.LM76:
+ 480 01f4 F092 8900 		sts (136)+1,r15
+ 481 01f8 E092 8800 		sts 136,r14
+ 482               	.LM77:
+ 483 01fc C092 0000 		sts fire_searching,r12
+ 484               	.LM78:
+ 485 0200 1092 0000 		sts fire_on_aim,__zero_reg__
+ 486               	.LM79:
+ 487 0204 1092 0000 		sts stop_aim,__zero_reg__
+ 488               	.LM80:
+ 489 0208 5898      		cbi 43-32,0
+ 490               	.LM81:
+ 491 020a 5998      		cbi 43-32,1
+ 492               	.LM82:
+ 493 020c 5A98      		cbi 43-32,2
+ 494               	.LM83:
+ 495 020e 5C98      		cbi 43-32,4
+ 496 0210 00C0      		rjmp .L64
+ 497               	.L37:
+ 498               	.LM84:
+ 499 0212 589A      		sbi 43-32,0
+ 500               	.LM85:
+ 501 0214 0E94 0000 		call adc_check
+ 502               	.LVL24:
+ 503               	.LM86:
+ 504 0218 8091 0000 		lds r24,PULSE_WIDTH
+ 505 021c 9091 0000 		lds r25,(PULSE_WIDTH)+1
+ 506 0220 6DE7      		ldi r22,lo8(125)
+ 507 0222 70E0      		ldi r23,hi8(125)
+ 508 0224 0E94 0000 		call aim_left
+ 509               	.LM87:
+ 510 0228 8091 0000 		lds r24,fire_detected
+ 511 022c 8823      		tst r24
+ 512 022e 01F0      		breq .L36
+ 513               	.LM88:
+ 514 0230 C092 0000 		sts stop_aim,r12
+ 515               	.LM89:
+ 516 0234 1092 0000 		sts fire_searching,__zero_reg__
+ 517               	.L36:
+ 518               	.LM90:
+ 519 0238 8091 0000 		lds r24,stop_aim
+ 520 023c 8823      		tst r24
+ 521 023e 01F4      		brne .L64
+ 522               	.LM91:
+ 523 0240 8091 0000 		lds r24,PULSE_WIDTH
+ 524 0244 9091 0000 		lds r25,(PULSE_WIDTH)+1
+ 525 0248 6EE3      		ldi r22,lo8(62)
+ 526 024a 70E0      		ldi r23,hi8(62)
+ 527 024c 0E94 0000 		call aim_right
+ 528               	.LM92:
+ 529 0250 8091 0000 		lds r24,fire_detected
+ 530 0254 8823      		tst r24
+ 531 0256 01F0      		breq .L64
+ 532               	.LM93:
+ 533 0258 1092 0000 		sts fire_searching,__zero_reg__
+ 534               	.LVL25:
+ 535               	.L64:
+ 536               	.LM94:
+ 537 025c 8091 0000 		lds r24,fire_searching
+ 538 0260 8823      		tst r24
+ 539 0262 01F4      		brne .L37
+ 540               	.LM95:
+ 541 0264 5898      		cbi 43-32,0
+ 542 0266 00C0      		rjmp .L65
+ 543               	.L67:
+ 544               	.LM96:
+ 545 0268 8091 0000 		lds r24,fire_at
+ 546 026c 8130      		cpi r24,lo8(1)
+ 547 026e 01F4      		brne .L39
+ 548               	.LM97:
+ 549 0270 5A9A      		sbi 43-32,2
+ 550 0272 CEE5      		ldi r28,lo8(94)
+ 551 0274 D0E0      		ldi r29,hi8(94)
+ 552               	.LVL26:
+ 553 0276 00C0      		rjmp .L40
+ 554               	.L44:
+ 555               	.LBB72:
+ 556               	.LM98:
+ 557 0278 D093 8900 		sts (136)+1,r29
+ 558 027c C093 8800 		sts 136,r28
+ 559               	.LM99:
+ 560 0280 0E94 0000 		call adc_check
+ 561               	.LVL27:
+ 562 0284 8CE2      		ldi r24,lo8(300)
+ 563 0286 91E0      		ldi r25,hi8(300)
+ 564               	.LVL28:
+ 565               	.L41:
+ 566               	.LBB73:
+ 567               	.LBB74:
+ 568               	.LBB75:
+ 569               	.LBB76:
+ 570               	.LM100:
+ 571 0288 F801      		movw r30,r16
+ 572               	.LVL29:
+ 573               	/* #APP */
+ 574               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 575 028a 3197      		1: sbiw r30,1
+ 576 028c 01F4      		brne 1b
+ 577               	 ;  0 "" 2
+ 578               	/* #NOAPP */
+ 579               	.LBE76:
+ 580               	.LBE75:
+ 581               	.LM101:
+ 582 028e 0197      		sbiw r24,1
+ 583               	.LM102:
+ 584 0290 01F4      		brne .L41
+ 585               	.LBE74:
+ 586               	.LBE73:
+ 587               	.LM103:
+ 588 0292 8091 0000 		lds r24,adc_value+6
+ 589 0296 9091 0000 		lds r25,(adc_value+6)+1
+ 590               	.LVL30:
+ 591 029a 855F      		subi r24,lo8(501)
+ 592 029c 9140      		sbci r25,hi8(501)
+ 593 029e 00F0      		brlo .L42
+ 594               	.LM104:
+ 595 02a0 D092 0000 		sts fire_on_aim,r13
+ 596               	.LM105:
+ 597 02a4 1092 0000 		sts fire_at,__zero_reg__
+ 598               	.L42:
+ 599               	.LM106:
+ 600 02a8 2197      		sbiw r28,1
+ 601 02aa CE33      		cpi r28,62
+ 602 02ac D105      		cpc r29,__zero_reg__
+ 603 02ae 01F0      		breq .L43
+ 604               	.LVL31:
+ 605               	.L40:
+ 606 02b0 8091 0000 		lds r24,fire_on_aim
+ 607 02b4 8823      		tst r24
+ 608 02b6 01F0      		breq .L44
+ 609 02b8 00C0      		rjmp .L43
+ 610               	.LVL32:
+ 611               	.L39:
+ 612               	.LBE72:
+ 613               	.LM107:
+ 614 02ba 8230      		cpi r24,lo8(2)
+ 615 02bc 01F4      		brne .L43
+ 616               	.LM108:
+ 617 02be 599A      		sbi 43-32,1
+ 618 02c0 CEE5      		ldi r28,lo8(94)
+ 619 02c2 D0E0      		ldi r29,hi8(94)
+ 620               	.LVL33:
+ 621 02c4 00C0      		rjmp .L45
+ 622               	.L48:
+ 623               	.LBB77:
+ 624               	.LM109:
+ 625 02c6 D093 8900 		sts (136)+1,r29
+ 626 02ca C093 8800 		sts 136,r28
+ 627               	.LM110:
+ 628 02ce 0E94 0000 		call adc_check
+ 629               	.LVL34:
+ 630 02d2 8CE2      		ldi r24,lo8(300)
+ 631 02d4 91E0      		ldi r25,hi8(300)
+ 632               	.LVL35:
+ 633               	.L46:
+ 634               	.LBB71:
+ 635               	.LBB70:
+ 636               	.LBB69:
+ 637               	.LBB68:
+ 638               	.LM111:
+ 639 02d6 F801      		movw r30,r16
+ 640               	.LVL36:
+ 641               	/* #APP */
+ 642               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 643 02d8 3197      		1: sbiw r30,1
+ 644 02da 01F4      		brne 1b
+ 645               	 ;  0 "" 2
+ 646               	/* #NOAPP */
+ 647               	.LBE68:
+ 648               	.LBE69:
+ 649               	.LM112:
+ 650 02dc 0197      		sbiw r24,1
+ 651               	.LM113:
+ 652 02de 01F4      		brne .L46
+ 653               	.LBE70:
+ 654               	.LBE71:
+ 655               	.LM114:
+ 656 02e0 8091 0000 		lds r24,adc_value+6
+ 657 02e4 9091 0000 		lds r25,(adc_value+6)+1
+ 658               	.LVL37:
+ 659 02e8 855F      		subi r24,lo8(501)
+ 660 02ea 9140      		sbci r25,hi8(501)
+ 661 02ec 00F0      		brlo .L47
+ 662               	.LM115:
+ 663 02ee D092 0000 		sts fire_on_aim,r13
+ 664               	.LM116:
+ 665 02f2 1092 0000 		sts fire_at,__zero_reg__
+ 666               	.L47:
+ 667               	.LM117:
+ 668 02f6 2196      		adiw r28,1
+ 669 02f8 CD37      		cpi r28,125
+ 670 02fa D105      		cpc r29,__zero_reg__
+ 671 02fc 01F0      		breq .L43
+ 672               	.LVL38:
+ 673               	.L45:
+ 674 02fe 8091 0000 		lds r24,fire_on_aim
+ 675 0302 8823      		tst r24
+ 676 0304 01F0      		breq .L48
+ 677               	.LVL39:
+ 678               	.L43:
+ 679               	.LBE77:
+ 680               	.LM118:
+ 681 0306 8091 0000 		lds r24,fire_at
+ 682 030a 8823      		tst r24
+ 683 030c 01F4      		brne .L65
+ 684               	.LM119:
+ 685 030e 5C9A      		sbi 43-32,4
+ 686 0310 00C0      		rjmp .L66
+ 687               	.L51:
+ 688               	.LM120:
+ 689 0312 88EE      		ldi r24,lo8(1000)
+ 690 0314 93E0      		ldi r25,hi8(1000)
+ 691               	.LVL40:
+ 692               	.L50:
+ 693               	.LBB78:
+ 694               	.LBB79:
+ 695               	.LBB80:
+ 696               	.LBB81:
+ 697               	.LM121:
+ 698 0316 F801      		movw r30,r16
+ 699               	.LVL41:
+ 700               	/* #APP */
+ 701               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 702 0318 3197      		1: sbiw r30,1
+ 703 031a 01F4      		brne 1b
+ 704               	 ;  0 "" 2
+ 705               	/* #NOAPP */
+ 706               	.LBE81:
+ 707               	.LBE80:
+ 708               	.LM122:
+ 709 031c 0197      		sbiw r24,1
+ 710               	.LM123:
+ 711 031e 01F4      		brne .L50
+ 712               	.LBE79:
+ 713               	.LBE78:
+ 714               	.LM124:
+ 715 0320 0E94 0000 		call adc_check
+ 716               	.LVL42:
+ 717               	.LM125:
+ 718 0324 8091 0000 		lds r24,adc_value+6
+ 719 0328 9091 0000 		lds r25,(adc_value+6)+1
+ 720 032c 845F      		subi r24,lo8(500)
+ 721 032e 9140      		sbci r25,hi8(500)
+ 722 0330 00F4      		brsh .L66
+ 723               	.LM126:
+ 724 0332 1092 0000 		sts fire_on_aim,__zero_reg__
+ 725               	.LVL43:
+ 726               	.L66:
+ 727               	.LM127:
+ 728 0336 8091 0000 		lds r24,fire_on_aim
+ 729 033a 8823      		tst r24
+ 730 033c 01F4      		brne .L51
+ 731               	.LM128:
+ 732 033e 5C98      		cbi 43-32,4
+ 733               	.LM129:
+ 734 0340 1092 0000 		sts fire_detected,__zero_reg__
+ 735               	.L65:
+ 736               	.LM130:
+ 737 0344 8091 0000 		lds r24,fire_detected
+ 738 0348 8823      		tst r24
+ 739 034a 01F4      		brne .+2
+ 740 034c 00C0      		rjmp .L53
+ 741 034e 00C0      		rjmp .L67
+ 742               	.LFE14:
+ 744               	.global	PULSE_WIDTH
+ 745               		.data
+ 748               	PULSE_WIDTH:
+ 749 0000 5E00      		.word	94
+ 750               	.global	fire_searching
+ 753               	fire_searching:
+ 754 0002 01        		.byte	1
+ 755               	.global	fire_detected
+ 756               	.global	fire_detected
+ 757               		.section .bss
+ 760               	fire_detected:
+ 761 0000 00        		.skip 1,0
+ 762               	.global	stop_aim
+ 763               	.global	stop_aim
+ 766               	stop_aim:
+ 767 0001 00        		.skip 1,0
+ 768               	.global	fire_on_aim
+ 769               	.global	fire_on_aim
+ 772               	fire_on_aim:
+ 773 0002 00        		.skip 1,0
+ 774               	.global	fire_at
+ 775               	.global	fire_at
+ 778               	fire_at:
+ 779 0003 00        		.skip 1,0
+ 780               		.comm adc_value,14,1
+ 869               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:2      *ABS*:0000003f __SREG__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:5      *ABS*:00000034 __CCP__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:18     .text:00000000 init_pin
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:44     .text:00000016 init_adc
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:68     .text:0000002c init_pwm
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:748    .data:00000000 PULSE_WIDTH
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:108    .text:00000062 adc_read
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:141    .text:0000008e adc_check
+                            *COM*:0000000e adc_value
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:175    .text:000000b2 fire_check
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:760    .bss:00000000 fire_detected
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:778    .bss:00000003 fire_at
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:224    .text:00000102 aim_left
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:320    .text:0000015a aim_right
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:417    .text:000001b2 main
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:753    .data:00000002 fire_searching
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:772    .bss:00000002 fire_on_aim
+C:\Users\Admin\AppData\Local\Temp/cc5uU4cI.s:766    .bss:00000001 stop_aim
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
